@@ -28,7 +28,7 @@ api_client = boto3.client('apigateway', aws_access_key_id=aws_id, aws_secret_acc
 
 def main():
 
-  print '\n* Start AWS Lambda function deployment'
+  print('\n* Start AWS Lambda function deployment')
   conf = get_configuration()
 
   if not conf:
@@ -41,7 +41,7 @@ def main():
     return
   conf['account_id'] = role_arn.split(':')[4]
 
-  print '** Updating function code'
+  print('** Updating function code')
 
   func_arn = set_up_func(conf, role_arn)
   if not func_arn:
@@ -49,13 +49,13 @@ def main():
     return
 
   if not 'no-api' in conf:
-    print '** Setting up API endpoint'
+    print('** Setting up API endpoint')
     rest_api_id = set_up_api(conf, func_arn)
 
   if 'db' in conf:
     create_databases(conf['db'])
 
-  print '** Deployment complete'
+  print('** Deployment complete')
 
 def get_configuration():
   '''
@@ -79,7 +79,7 @@ def get_configuration():
         }
         if conf_strings.noapi in docstr:
           conf['no-api'] = True
-          print '** Will not update API endpoint'
+          print('** Will not update API endpoint')
         if conf_strings.html in docstr:
           conf['html'] = True
         return conf
@@ -201,7 +201,7 @@ def set_up_api(conf, func_arn):
     logging.exception('API not found and could not be created')
   # Update conf
   api_conf_template = api_conf_html if 'html' in conf else api_conf_json
-  print '** API endpoint returns ' + 'HTML' if 'html' in conf else 'JSON'
+  print('** API endpoint returns ' + 'HTML' if 'html' in conf else 'JSON')
   api_conf_template['info']['title'] = api_name
 
   api_conf_dump = json.dumps(api_conf_template)
@@ -225,7 +225,7 @@ def set_up_api(conf, func_arn):
     Action='lambda:InvokeFunction',
     Principal='apigateway.amazonaws.com'
   )
-  print 'Function available at https://%s.execute-api.%s.amazonaws.com/prod/' % (api_id, aws_region)
+  print('Function available at https://%s.execute-api.%s.amazonaws.com/prod/' % (api_id, aws_region))
 
 api_conf_html = {
   "swagger" : "2.0",
