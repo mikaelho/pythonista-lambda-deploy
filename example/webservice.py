@@ -29,8 +29,10 @@ def handler(event = None, context = None):
   
   name = 'nameless'
   
-  if 'queryParams' in event and 'name' in event['queryParams']:
+  try:
     name = event['queryParams']['name']
+  except KeyError:
+    pass
   
   with open('main.html') as file_in:
     main_html = file_in.read()
