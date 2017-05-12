@@ -13,6 +13,12 @@ To be implemented:
 - Optionally create an S3 public or private bucket, and set the Lambda function with access rights
 - Optionally create a DynamoDB table and set the Lambda function with the rights to write to it
 
+# Installation
+
+Create a suitable directory. In stash, move to that directory and get the files with:
+
+git clone https://github.com/mikaelho/pythonista-lambda-deploy.git
+
 # Setup
 
 To give the script access to AWS services, create file `awsconf.py` in the same directory as the `lambda-deploy.py` with the credentials available from the AWS console:
@@ -21,7 +27,7 @@ To give the script access to AWS services, create file `awsconf.py` in the same 
     aws_secret='YOUR_AWS_SECRET'
     aws_region='YOUR REGION, e.g. eu-west-1'
 
-Then set up the `lambda-deploy.py` script in your Pythonista action ('screwdriver') menu.
+Then include the `lambda-deploy.py` script in your Pythonista action menu ('screwdriver' in the upper right corner, 'Edit', then 'plus' to add the script with your choice of icon and color).
 
 # First deployment
 
