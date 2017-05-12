@@ -6,7 +6,7 @@ import ast
 import re
 import json
 import zipfile
-import StringIO
+import io
 import logging
 import collections
 
@@ -133,7 +133,7 @@ def get_zipped():
   '''
   Returns the binary zipped contents of the directory the file openin the editor is in.
   '''
-  in_mem_file = StringIO.StringIO()
+  in_mem_file = io.BytesIO()
   with zipfile.ZipFile(in_mem_file, 'w') as zip_file:
     zip_directory(current_dir, zip_file)
   return in_mem_file.getvalue()
