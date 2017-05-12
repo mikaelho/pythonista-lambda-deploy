@@ -15,7 +15,7 @@ To be implemented:
 
 # Setup
 
-To give the script access to AWS services, create file `awsconf.py` in the same directory as the `lambda-deploy.py` with the cresentials available from the AWS console:
+To give the script access to AWS services, create file `awsconf.py` in the same directory as the `lambda-deploy.py` with the credentials available from the AWS console:
 
     aws_id='YOUR_AWS_ID'
     aws_secret='YOUR_AWS_SECRET'
@@ -23,6 +23,7 @@ To give the script access to AWS services, create file `awsconf.py` in the same 
 
 Then set up the `lambda-deploy.py` script in your Pythonista action ('screwdriver') menu.
 
-# Creating an AWS Lambda function
+# First deployment
 
-... work in progress ...
+Move to the `example` directory and open up `webservice.py`. Deploy it by running the deployer from the action menu. Script reports a url that you can click to see the function running on AWS.
+
