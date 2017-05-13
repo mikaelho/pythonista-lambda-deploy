@@ -41,5 +41,7 @@ If you need resources like images, a convenient option is to put them on S3 and 
 
 AWS Lambda function name is the name of the directory where your handler function is. You can develop and keep re-deploying your function, and the deployer will update the AWS Lambda function. But if you change the directory name, the deployer will create a new AWS Lambda function and an API endpoint with a different URL.
 
+# License
 
+Do what you want with it, but do not blame me if something goes wrong.
 
