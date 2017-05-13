@@ -17,7 +17,7 @@ def handler(event = None, context = None):
   """
   This is the Lambda function that handles the request to AWS.
   
-  Name of this functionnis not significant. 
+  Name of this function is not significant. 
   Deployer recognizes this as the right
   function because this comment has the magic
   string @awslambda.
@@ -27,12 +27,10 @@ def handler(event = None, context = None):
   because of the @html string in this comment.
   """
   
-  name = 'nameless'
-  
   try:
     name = event['queryParams']['name']
   except KeyError:
-    pass
+    name = 'nameless'
   
   with open('main.html') as file_in:
     main_html = file_in.read()
