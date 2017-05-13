@@ -166,7 +166,7 @@ def create_lambda_func(conf, role_arn, code_zip):
   '''
   result = lambda_client.create_function(
           FunctionName = conf['function_name'],
-          Runtime = 'python2.7',
+          Runtime = 'python3.6',
           Role = role_arn,
           Handler = conf['handler'],
           Code = { 'ZipFile': code_zip }
