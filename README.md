@@ -8,7 +8,7 @@ Script will:
 - By default, create or update an API endpoint, with permissions for accessing the Lambda function
 - Optionally make the API endpoint return HTML content type (i.e. a web page) instead of JSON
 
-To be implemented:
+Could be implemented:
 
 - Optionally create an S3 public or private bucket, and set the Lambda function with access rights
 - Optionally create a DynamoDB table and set the Lambda function with the rights to write to it
@@ -35,11 +35,13 @@ Move to the `example` directory and open up `webservice.py`. Deploy it by runnin
 
 # Re-deploying and other considerations
 
+AWS Lambda function name is the name of the directory where your handler function is. You can develop and keep re-deploying your function, and the deployer will update the AWS Lambda function. But if you change the directory name, the deployer will create a new AWS Lambda function and an API endpoint with a different URL.
+
 AWS Lambda functions are deployed by zipping the whole directory that you handler in. If you need some additional packages, you need to install them in the same directory so that they get carried along to AWS. You do not need to include Boto, the AWS Python client package.
 
 If you need resources like images, a convenient option is to put them on S3 and turn on the bucket option that makes the bucket available as a web site.
 
-AWS Lambda function name is the name of the directory where your handler function is. You can develop and keep re-deploying your function, and the deployer will update the AWS Lambda function. But if you change the directory name, the deployer will create a new AWS Lambda function and an API endpoint with a different URL.
+Deployer works with Python 3.5, and deploys functions to the AWS Lambda 3.6 runtime. Supporting legacy 2.7 at either end would be easy, so if you need it, open an issue on Github.
 
 # License
 
