@@ -9,6 +9,7 @@ import zipfile
 import io
 import logging
 import collections
+import time
 
 import boto3
 
@@ -42,6 +43,8 @@ def main():
   conf['account_id'] = role_arn.split(':')[4]
 
   print('** Updating function code')
+  
+  time.sleep(5)
 
   func_arn = set_up_func(conf, role_arn)
   if not func_arn:
