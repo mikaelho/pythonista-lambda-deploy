@@ -2,6 +2,7 @@
 
 import os
 import editor
+import console
 import ast
 import re
 import json
@@ -15,6 +16,8 @@ import boto3
 
 from awsconf import *
 import botocore.exceptions
+
+console.clear()
 
 ConfStrings = collections.namedtuple('ConfStrings', 'awslambda noapi html')
 conf_strings = ConfStrings('@awslambda', '@no-api', '@html')
